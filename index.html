@@ -627,15 +627,35 @@
 
   <section class="section section-soft">
     <div class="container">
-      <div class="reveal in-view" style="text-align:center; max-width:600px; margin:0 auto;">
-        <h2 style="margin-bottom:22px;">Contact Me</h2>
-        <p style="margin-bottom:32px; font-size:1.05rem;">Have questions or want to collaborate? Feel free to reach out!</p>
-        <a href="mailto:seanellacuenco1@gmail.com" class="btn btn-primary" style="display:inline-flex; padding:16px 40px; font-size:1.1rem;">
-          Send Email
-        </a>
-        <div style="margin-top:32px;">
-          <h4 style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px; font-weight:600;">Social Media</h4>
-          <div class="social-row" style="justify-content:center;">
+      <div class="grid-2" style="align-items:flex-start; gap:48px;">
+
+        <div class="reveal in-view">
+          <h2 style="margin-bottom:22px;">Contact Information</h2>
+
+          <div class="contact-info-row">
+            <span class="emoji-icon">📧</span>
+            <div>
+              <span class="label">Email</span>
+              <span class="value">seanellacuenco1@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <span class="emoji-icon">📍</span>
+            <div>
+              <span class="label">Location</span>
+              <span class="value">Baguio City, Philippines</span>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <span class="emoji-icon">🎓</span>
+            <div>
+              <span class="label">School</span>
+              <span class="value">University of the Cordilleras</span>
+            </div>
+          </div>
+
+          <h4 style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-top:34px; margin-bottom:16px; font-weight:600;">Social Media</h4>
+          <div class="social-row">
             <a class="social-btn" href="https://www.facebook.com/seanellarose.cuenco" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
@@ -643,7 +663,37 @@
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
             </a>
           </div>
+          <div class="social-cta-row">
+            <a class="btn btn-outline btn-sm" href="https://www.facebook.com/seanellarose.cuenco" target="_blank" rel="noopener noreferrer">Visit Facebook</a>
+            <a class="btn btn-outline btn-sm" href="https://www.instagram.com/thalieee.nn/" target="_blank" rel="noopener noreferrer">Visit Instagram</a>
+          </div>
         </div>
+
+        <div class="reveal in-view reveal-delay-1">
+          <div class="form-success" id="formSuccess">✓ Your email client should open with the message ready to send!</div>
+          <form class="contact-form" id="contactForm" action="mailto:seanellacuenco1@gmail.com" method="post" enctype="text/plain">
+            <div class="form-row">
+              <div class="field">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="What's this about?" required>
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
@@ -754,6 +804,15 @@
       if(e.key === 'Escape'){
         closeImageModal();
       }
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    contactForm.addEventListener('submit', function(e){
+      formSuccess.classList.add('show');
+      setTimeout(() => {
+        formSuccess.classList.remove('show');
+      }, 5000);
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
