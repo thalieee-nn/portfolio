@@ -1,0 +1,28 @@
+# Keep the images folder but ignore large files if needed
+# images/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build files
+dist/
+build/
+
+# Node modules (if using any build tools in the future)
+node_modules/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
